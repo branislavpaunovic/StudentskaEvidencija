@@ -101,7 +101,7 @@ namespace StudentskaEvidencija
             int y = (this.ClientSize.Height - studentForm.Height) / 2; // po sredini vertikalno
 
             studentForm.Location = new System.Drawing.Point(x, y);
-            studentForm.Show();
+                studentForm.Show();
         }
 
         private void button1_Click_1(object sender, EventArgs e)

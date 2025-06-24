@@ -36,11 +36,23 @@
             this.editButton1 = new StudentskaEvidencija.EditButton();
             this.deleteButton1 = new StudentskaEvidencija.Controls.DeleteButton();
             this.tlpNavigation = new System.Windows.Forms.TableLayoutPanel();
-            this.btnFirst = new StudentskaEvidencija.Controls.AddNewButton();
-            this.btnPrevious = new StudentskaEvidencija.Controls.AddNewButton();
-            this.btnNext = new StudentskaEvidencija.Controls.AddNewButton();
             this.btnLast = new StudentskaEvidencija.Controls.AddNewButton();
+            this.btnNext = new StudentskaEvidencija.Controls.AddNewButton();
+            this.btnPrevious = new StudentskaEvidencija.Controls.AddNewButton();
+            this.btnFirst = new StudentskaEvidencija.Controls.AddNewButton();
             this.tlpStudentNavigation = new System.Windows.Forms.TableLayoutPanel();
+            this.txtPol = new System.Windows.Forms.TextBox();
+            this.txtSmer = new System.Windows.Forms.TextBox();
+            this.txtZemlja = new System.Windows.Forms.TextBox();
+            this.txtGrad = new System.Windows.Forms.TextBox();
+            this.txtPtt = new System.Windows.Forms.TextBox();
+            this.txtBrojKuce = new System.Windows.Forms.TextBox();
+            this.txtUlica = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtTelefon = new System.Windows.Forms.TextBox();
+            this.txtBrojIndeksa = new System.Windows.Forms.TextBox();
+            this.txtDatumRodjenja = new System.Windows.Forms.TextBox();
+            this.txtPrezime = new System.Windows.Forms.TextBox();
             this.lblIme = new System.Windows.Forms.Label();
             this.lblPrezime = new System.Windows.Forms.Label();
             this.lblDatumRodjenja = new System.Windows.Forms.Label();
@@ -55,7 +67,8 @@
             this.lblSmer = new System.Windows.Forms.Label();
             this.lblPol = new System.Windows.Forms.Label();
             this.lblAdministrator = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtIme = new System.Windows.Forms.TextBox();
+            this.chkAdministrator = new System.Windows.Forms.CheckBox();
             this.tlpActions.SuspendLayout();
             this.tlpNavigation.SuspendLayout();
             this.tlpStudentNavigation.SuspendLayout();
@@ -152,27 +165,16 @@
             this.tlpNavigation.Size = new System.Drawing.Size(1020, 60);
             this.tlpNavigation.TabIndex = 1;
             // 
-            // btnFirst
+            // btnLast
             // 
-            this.btnFirst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnLast.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnFirst.Location = new System.Drawing.Point(3, 3);
-            this.btnFirst.Name = "btnFirst";
-            this.btnFirst.Size = new System.Drawing.Size(249, 54);
-            this.btnFirst.TabIndex = 0;
-            this.btnFirst.Text = "<<";
-            this.btnFirst.UseVisualStyleBackColor = true;
-            // 
-            // btnPrevious
-            // 
-            this.btnPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPrevious.Location = new System.Drawing.Point(258, 3);
-            this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(249, 54);
-            this.btnPrevious.TabIndex = 1;
-            this.btnPrevious.Text = "<";
-            this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnLast.Location = new System.Drawing.Point(768, 3);
+            this.btnLast.Name = "btnLast";
+            this.btnLast.Size = new System.Drawing.Size(249, 54);
+            this.btnLast.TabIndex = 3;
+            this.btnLast.Text = ">>";
+            this.btnLast.UseVisualStyleBackColor = true;
             // 
             // btnNext
             // 
@@ -185,16 +187,27 @@
             this.btnNext.Text = ">";
             this.btnNext.UseVisualStyleBackColor = true;
             // 
-            // btnLast
+            // btnPrevious
             // 
-            this.btnLast.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnLast.Location = new System.Drawing.Point(768, 3);
-            this.btnLast.Name = "btnLast";
-            this.btnLast.Size = new System.Drawing.Size(249, 54);
-            this.btnLast.TabIndex = 3;
-            this.btnLast.Text = ">>";
-            this.btnLast.UseVisualStyleBackColor = true;
+            this.btnPrevious.Location = new System.Drawing.Point(258, 3);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(249, 54);
+            this.btnPrevious.TabIndex = 1;
+            this.btnPrevious.Text = "<";
+            this.btnPrevious.UseVisualStyleBackColor = true;
+            // 
+            // btnFirst
+            // 
+            this.btnFirst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnFirst.Location = new System.Drawing.Point(3, 3);
+            this.btnFirst.Name = "btnFirst";
+            this.btnFirst.Size = new System.Drawing.Size(249, 54);
+            this.btnFirst.TabIndex = 0;
+            this.btnFirst.Text = "<<";
+            this.btnFirst.UseVisualStyleBackColor = true;
             // 
             // tlpStudentNavigation
             // 
@@ -204,6 +217,18 @@
             this.tlpStudentNavigation.ColumnCount = 2;
             this.tlpStudentNavigation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpStudentNavigation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpStudentNavigation.Controls.Add(this.txtPol, 1, 12);
+            this.tlpStudentNavigation.Controls.Add(this.txtSmer, 1, 11);
+            this.tlpStudentNavigation.Controls.Add(this.txtZemlja, 1, 10);
+            this.tlpStudentNavigation.Controls.Add(this.txtGrad, 1, 9);
+            this.tlpStudentNavigation.Controls.Add(this.txtPtt, 1, 8);
+            this.tlpStudentNavigation.Controls.Add(this.txtBrojKuce, 1, 7);
+            this.tlpStudentNavigation.Controls.Add(this.txtUlica, 1, 6);
+            this.tlpStudentNavigation.Controls.Add(this.txtEmail, 1, 5);
+            this.tlpStudentNavigation.Controls.Add(this.txtTelefon, 1, 4);
+            this.tlpStudentNavigation.Controls.Add(this.txtBrojIndeksa, 1, 3);
+            this.tlpStudentNavigation.Controls.Add(this.txtDatumRodjenja, 1, 2);
+            this.tlpStudentNavigation.Controls.Add(this.txtPrezime, 1, 1);
             this.tlpStudentNavigation.Controls.Add(this.lblIme, 0, 0);
             this.tlpStudentNavigation.Controls.Add(this.lblPrezime, 0, 1);
             this.tlpStudentNavigation.Controls.Add(this.lblDatumRodjenja, 0, 2);
@@ -218,26 +243,195 @@
             this.tlpStudentNavigation.Controls.Add(this.lblSmer, 0, 11);
             this.tlpStudentNavigation.Controls.Add(this.lblPol, 0, 12);
             this.tlpStudentNavigation.Controls.Add(this.lblAdministrator, 0, 13);
-            this.tlpStudentNavigation.Controls.Add(this.textBox1, 1, 0);
+            this.tlpStudentNavigation.Controls.Add(this.txtIme, 1, 0);
+            this.tlpStudentNavigation.Controls.Add(this.chkAdministrator, 1, 13);
             this.tlpStudentNavigation.Location = new System.Drawing.Point(2, 5);
             this.tlpStudentNavigation.Name = "tlpStudentNavigation";
             this.tlpStudentNavigation.RowCount = 14;
-            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142858F));
-            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142858F));
-            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142858F));
-            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142858F));
-            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142858F));
-            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142858F));
-            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142858F));
-            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142858F));
-            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142858F));
-            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142858F));
-            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142858F));
-            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142858F));
-            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142858F));
-            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142858F));
+            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
+            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
+            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
+            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
+            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
+            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
+            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
+            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
+            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
+            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
+            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
+            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
+            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
+            this.tlpStudentNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
             this.tlpStudentNavigation.Size = new System.Drawing.Size(1020, 675);
             this.tlpStudentNavigation.TabIndex = 2;
+            // 
+            // txtPol
+            // 
+            this.txtPol.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPol.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtPol.Enabled = false;
+            this.txtPol.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPol.Location = new System.Drawing.Point(515, 583);
+            this.txtPol.Margin = new System.Windows.Forms.Padding(5, 7, 5, 5);
+            this.txtPol.Name = "txtPol";
+            this.txtPol.Size = new System.Drawing.Size(500, 36);
+            this.txtPol.TabIndex = 39;
+            // 
+            // txtSmer
+            // 
+            this.txtSmer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSmer.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtSmer.Enabled = false;
+            this.txtSmer.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSmer.Location = new System.Drawing.Point(515, 535);
+            this.txtSmer.Margin = new System.Windows.Forms.Padding(5, 7, 5, 5);
+            this.txtSmer.Name = "txtSmer";
+            this.txtSmer.Size = new System.Drawing.Size(500, 36);
+            this.txtSmer.TabIndex = 38;
+            // 
+            // txtZemlja
+            // 
+            this.txtZemlja.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtZemlja.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtZemlja.Enabled = false;
+            this.txtZemlja.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtZemlja.Location = new System.Drawing.Point(515, 487);
+            this.txtZemlja.Margin = new System.Windows.Forms.Padding(5, 7, 5, 5);
+            this.txtZemlja.Name = "txtZemlja";
+            this.txtZemlja.Size = new System.Drawing.Size(500, 36);
+            this.txtZemlja.TabIndex = 37;
+            // 
+            // txtGrad
+            // 
+            this.txtGrad.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtGrad.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtGrad.Enabled = false;
+            this.txtGrad.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGrad.Location = new System.Drawing.Point(515, 439);
+            this.txtGrad.Margin = new System.Windows.Forms.Padding(5, 7, 5, 5);
+            this.txtGrad.Name = "txtGrad";
+            this.txtGrad.Size = new System.Drawing.Size(500, 36);
+            this.txtGrad.TabIndex = 36;
+            // 
+            // txtPtt
+            // 
+            this.txtPtt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPtt.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtPtt.Enabled = false;
+            this.txtPtt.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPtt.Location = new System.Drawing.Point(515, 391);
+            this.txtPtt.Margin = new System.Windows.Forms.Padding(5, 7, 5, 5);
+            this.txtPtt.Name = "txtPtt";
+            this.txtPtt.Size = new System.Drawing.Size(500, 36);
+            this.txtPtt.TabIndex = 35;
+            // 
+            // txtBrojKuce
+            // 
+            this.txtBrojKuce.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBrojKuce.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtBrojKuce.Enabled = false;
+            this.txtBrojKuce.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBrojKuce.Location = new System.Drawing.Point(515, 343);
+            this.txtBrojKuce.Margin = new System.Windows.Forms.Padding(5, 7, 5, 5);
+            this.txtBrojKuce.Name = "txtBrojKuce";
+            this.txtBrojKuce.Size = new System.Drawing.Size(500, 36);
+            this.txtBrojKuce.TabIndex = 34;
+            // 
+            // txtUlica
+            // 
+            this.txtUlica.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUlica.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtUlica.Enabled = false;
+            this.txtUlica.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUlica.Location = new System.Drawing.Point(515, 295);
+            this.txtUlica.Margin = new System.Windows.Forms.Padding(5, 7, 5, 5);
+            this.txtUlica.Name = "txtUlica";
+            this.txtUlica.Size = new System.Drawing.Size(500, 36);
+            this.txtUlica.TabIndex = 33;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEmail.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtEmail.Enabled = false;
+            this.txtEmail.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(515, 247);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(5, 7, 5, 5);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(500, 36);
+            this.txtEmail.TabIndex = 32;
+            // 
+            // txtTelefon
+            // 
+            this.txtTelefon.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTelefon.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtTelefon.Enabled = false;
+            this.txtTelefon.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefon.Location = new System.Drawing.Point(515, 199);
+            this.txtTelefon.Margin = new System.Windows.Forms.Padding(5, 7, 5, 5);
+            this.txtTelefon.Name = "txtTelefon";
+            this.txtTelefon.Size = new System.Drawing.Size(500, 36);
+            this.txtTelefon.TabIndex = 31;
+            // 
+            // txtBrojIndeksa
+            // 
+            this.txtBrojIndeksa.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBrojIndeksa.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtBrojIndeksa.Enabled = false;
+            this.txtBrojIndeksa.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBrojIndeksa.Location = new System.Drawing.Point(515, 151);
+            this.txtBrojIndeksa.Margin = new System.Windows.Forms.Padding(5, 7, 5, 5);
+            this.txtBrojIndeksa.Name = "txtBrojIndeksa";
+            this.txtBrojIndeksa.Size = new System.Drawing.Size(500, 36);
+            this.txtBrojIndeksa.TabIndex = 30;
+            // 
+            // txtDatumRodjenja
+            // 
+            this.txtDatumRodjenja.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDatumRodjenja.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtDatumRodjenja.Enabled = false;
+            this.txtDatumRodjenja.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDatumRodjenja.Location = new System.Drawing.Point(515, 103);
+            this.txtDatumRodjenja.Margin = new System.Windows.Forms.Padding(5, 7, 5, 5);
+            this.txtDatumRodjenja.Name = "txtDatumRodjenja";
+            this.txtDatumRodjenja.Size = new System.Drawing.Size(500, 36);
+            this.txtDatumRodjenja.TabIndex = 29;
+            // 
+            // txtPrezime
+            // 
+            this.txtPrezime.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPrezime.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtPrezime.Enabled = false;
+            this.txtPrezime.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrezime.Location = new System.Drawing.Point(515, 55);
+            this.txtPrezime.Margin = new System.Windows.Forms.Padding(5, 7, 5, 5);
+            this.txtPrezime.Name = "txtPrezime";
+            this.txtPrezime.Size = new System.Drawing.Size(500, 36);
+            this.txtPrezime.TabIndex = 28;
             // 
             // lblIme
             // 
@@ -435,17 +629,36 @@
             this.lblAdministrator.Text = "Administrator :";
             this.lblAdministrator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // txtIme
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(515, 5);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(500, 31);
-            this.textBox1.TabIndex = 2;
+            this.txtIme.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtIme.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtIme.Enabled = false;
+            this.txtIme.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIme.Location = new System.Drawing.Point(515, 7);
+            this.txtIme.Margin = new System.Windows.Forms.Padding(5, 7, 5, 5);
+            this.txtIme.Name = "txtIme";
+            this.txtIme.Size = new System.Drawing.Size(500, 36);
+            this.txtIme.TabIndex = 2;
+            // 
+            // chkAdministrator
+            // 
+            this.chkAdministrator.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkAdministrator.AutoSize = true;
+            this.chkAdministrator.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.chkAdministrator.Enabled = false;
+            this.chkAdministrator.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkAdministrator.Location = new System.Drawing.Point(513, 627);
+            this.chkAdministrator.Name = "chkAdministrator";
+            this.chkAdministrator.Size = new System.Drawing.Size(504, 45);
+            this.chkAdministrator.TabIndex = 40;
+            this.chkAdministrator.Text = "Da li student ima administratorska prava u aplikaciji?";
+            this.chkAdministrator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkAdministrator.UseVisualStyleBackColor = false;
             // 
             // frm_Student
             // 
@@ -465,6 +678,7 @@
             this.MinimizeBox = false;
             this.Name = "frm_Student";
             this.Text = "Evidencija studenata";
+            this.Load += new System.EventHandler(this.frm_Student_Load_1);
             this.tlpActions.ResumeLayout(false);
             this.tlpNavigation.ResumeLayout(false);
             this.tlpStudentNavigation.ResumeLayout(false);
@@ -501,6 +715,19 @@
         private System.Windows.Forms.Label lblSmer;
         private System.Windows.Forms.Label lblPol;
         private System.Windows.Forms.Label lblAdministrator;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtIme;
+        private System.Windows.Forms.TextBox txtPol;
+        private System.Windows.Forms.TextBox txtSmer;
+        private System.Windows.Forms.TextBox txtZemlja;
+        private System.Windows.Forms.TextBox txtGrad;
+        private System.Windows.Forms.TextBox txtPtt;
+        private System.Windows.Forms.TextBox txtBrojKuce;
+        private System.Windows.Forms.TextBox txtUlica;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtTelefon;
+        private System.Windows.Forms.TextBox txtBrojIndeksa;
+        private System.Windows.Forms.TextBox txtDatumRodjenja;
+        private System.Windows.Forms.TextBox txtPrezime;
+        private System.Windows.Forms.CheckBox chkAdministrator;
     }
 }
