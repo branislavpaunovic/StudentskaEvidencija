@@ -133,6 +133,7 @@
             this.cmd_ListView.TabIndex = 5;
             this.cmd_ListView.Text = "DATA LIST VIEW";
             this.cmd_ListView.UseVisualStyleBackColor = true;
+            this.cmd_ListView.Click += new System.EventHandler(this.cmd_ListView_Click);
             // 
             // cmd_Custom
             // 
@@ -192,6 +193,7 @@
             this.exitButton1.TabIndex = 12;
             this.exitButton1.Text = "EXIT";
             this.exitButton1.UseVisualStyleBackColor = true;
+            this.exitButton1.Click += new System.EventHandler(this.exitButton1_Click);
             // 
             // frm_MainForm
             // 

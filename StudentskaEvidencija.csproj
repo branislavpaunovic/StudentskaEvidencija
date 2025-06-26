@@ -51,6 +51,12 @@
     <Compile Include="DAL\KorisnikDAL.cs" />
     <Compile Include="DAL\PolDAL.cs" />
     <Compile Include="DAL\SmerDAL.cs" />
+    <Compile Include="frm_DataListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_DataListView.Designer.cs">
+      <DependentUpon>frm_DataListView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Konekcija.cs" />
     <Compile Include="Controls\AddNewButton.cs">
       <SubType>Component</SubType>
@@ -97,6 +103,12 @@
     <Compile Include="Models\Student.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frm_DataListView.aa.resx">
+      <DependentUpon>frm_DataListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_DataListView.resx">
+      <DependentUpon>frm_DataListView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_DataGreedView.resx">
       <DependentUpon>frm_DataGreedView.cs</DependentUpon>
     </EmbeddedResource>

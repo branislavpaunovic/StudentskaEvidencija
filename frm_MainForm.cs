@@ -136,6 +136,39 @@ namespace StudentskaEvidencija
             datagreedviewForm.Location = new System.Drawing.Point(x, y);
             datagreedviewForm.Show();
         }
+
+        private void cmd_ListView_Click(object sender, EventArgs e)
+        {
+
+            MessageBox.Show("Kliknuto je na Data List dugme!");
+            // Proveri da li je već otvorena forma ListView
+            foreach (Form child in this.MdiChildren)
+            {
+                if (child is frm_DataListView) // zameni sa DataListView ako je tako nazvana
+                {
+                    child.WindowState = FormWindowState.Maximized;
+                    child.BringToFront();
+                    return;
+                }
+            }
+
+            // Ako nije otvorena, kreiraj novu
+            frm_DataListView datalistviewForm = new frm_DataListView(); // zameni sa DataListView ako je tako nazvana
+            datalistviewForm.MdiParent = this;
+            datalistviewForm.StartPosition = FormStartPosition.Manual;
+
+            // Izračunaj poziciju:
+            int x = this.ClientSize.Width - datalistviewForm.Width - 10; // skroz desno
+            int y = (this.ClientSize.Height - datalistviewForm.Height) / 2; // po sredini vertikalno
+
+            datalistviewForm.Location = new System.Drawing.Point(x, y);
+            datalistviewForm.Show();
+        }
+
+        private void exitButton1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     }
 

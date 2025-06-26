@@ -29,6 +29,9 @@ namespace StudentskaEvidencija
 
         private void frm_DataGreedView_Load(object sender, EventArgs e)
         {
+            // Postavljanje specifičnog fonta za dgv_Student
+            dgv_Student.Font = new Font("Roboto", 8, FontStyle.Regular);
+
             string connString = ConfigurationManager.ConnectionStrings["StudentskaEvidencija"].ConnectionString;
 
             StudentDAL studentDAL = new StudentDAL(connString);
