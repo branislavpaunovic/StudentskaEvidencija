@@ -6,6 +6,8 @@ namespace StudentskaEvidencija.Controls
 {
     public class AddNewButton : Button
     {
+        public event EventHandler AddNewClicked;
+
         public AddNewButton()
         {
             this.Text = "Add New";
@@ -24,7 +26,8 @@ namespace StudentskaEvidencija.Controls
             }
 
             // Pozovi virtuelnu metodu za dodavanje sloga
-            OnAddNewRecord(form);
+            AddNewClicked?.Invoke(this, EventArgs.Empty);
+
         }
 
         private void EnableInputControls(Control parent)

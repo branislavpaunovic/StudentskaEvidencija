@@ -30,16 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Student));
             this.tlpActions = new System.Windows.Forms.TableLayoutPanel();
-            this.addNewButton1 = new StudentskaEvidencija.Controls.AddNewButton();
-            this.exitButton1 = new StudentskaEvidencija.Controls.ExitButton();
-            this.saveButton1 = new StudentskaEvidencija.Controls.SaveButton();
-            this.editButton1 = new StudentskaEvidencija.EditButton();
-            this.deleteButton1 = new StudentskaEvidencija.Controls.DeleteButton();
             this.tlpNavigation = new System.Windows.Forms.TableLayoutPanel();
-            this.btnLast = new StudentskaEvidencija.Controls.AddNewButton();
-            this.btnNext = new StudentskaEvidencija.Controls.AddNewButton();
-            this.btnPrevious = new StudentskaEvidencija.Controls.AddNewButton();
-            this.btnFirst = new StudentskaEvidencija.Controls.AddNewButton();
             this.tlpStudentNavigation = new System.Windows.Forms.TableLayoutPanel();
             this.txtPol = new System.Windows.Forms.TextBox();
             this.txtSmer = new System.Windows.Forms.TextBox();
@@ -69,6 +60,15 @@
             this.lblAdministrator = new System.Windows.Forms.Label();
             this.txtIme = new System.Windows.Forms.TextBox();
             this.chkAdministrator = new System.Windows.Forms.CheckBox();
+            this.btnLast = new StudentskaEvidencija.Controls.AddNewButton();
+            this.btnNext = new StudentskaEvidencija.Controls.AddNewButton();
+            this.btnPrevious = new StudentskaEvidencija.Controls.AddNewButton();
+            this.btnFirst = new StudentskaEvidencija.Controls.AddNewButton();
+            this.addNewButton1 = new StudentskaEvidencija.Controls.AddNewButton();
+            this.exitButton1 = new StudentskaEvidencija.Controls.ExitButton();
+            this.saveButton1 = new StudentskaEvidencija.Controls.SaveButton();
+            this.editButton1 = new StudentskaEvidencija.EditButton();
+            this.deleteButton1 = new StudentskaEvidencija.Controls.DeleteButton();
             this.tlpActions.SuspendLayout();
             this.tlpNavigation.SuspendLayout();
             this.tlpStudentNavigation.SuspendLayout();
@@ -97,53 +97,6 @@
             this.tlpActions.Size = new System.Drawing.Size(1020, 60);
             this.tlpActions.TabIndex = 0;
             // 
-            // addNewButton1
-            // 
-            this.addNewButton1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.addNewButton1.Location = new System.Drawing.Point(3, 3);
-            this.addNewButton1.Name = "addNewButton1";
-            this.addNewButton1.Size = new System.Drawing.Size(198, 54);
-            this.addNewButton1.TabIndex = 0;
-            this.addNewButton1.Text = "NEW";
-            this.addNewButton1.UseVisualStyleBackColor = true;
-            // 
-            // exitButton1
-            // 
-            this.exitButton1.Location = new System.Drawing.Point(819, 3);
-            this.exitButton1.Name = "exitButton1";
-            this.exitButton1.Size = new System.Drawing.Size(198, 54);
-            this.exitButton1.TabIndex = 2;
-            this.exitButton1.Text = "EXIT";
-            this.exitButton1.UseVisualStyleBackColor = true;
-            // 
-            // saveButton1
-            // 
-            this.saveButton1.Location = new System.Drawing.Point(615, 3);
-            this.saveButton1.Name = "saveButton1";
-            this.saveButton1.Size = new System.Drawing.Size(198, 54);
-            this.saveButton1.TabIndex = 4;
-            this.saveButton1.Text = "SAVE";
-            this.saveButton1.UseVisualStyleBackColor = true;
-            // 
-            // editButton1
-            // 
-            this.editButton1.Location = new System.Drawing.Point(207, 3);
-            this.editButton1.Name = "editButton1";
-            this.editButton1.Size = new System.Drawing.Size(198, 54);
-            this.editButton1.TabIndex = 5;
-            this.editButton1.Text = "EDIT";
-            this.editButton1.UseVisualStyleBackColor = true;
-            // 
-            // deleteButton1
-            // 
-            this.deleteButton1.Location = new System.Drawing.Point(411, 3);
-            this.deleteButton1.Name = "deleteButton1";
-            this.deleteButton1.Size = new System.Drawing.Size(198, 54);
-            this.deleteButton1.TabIndex = 6;
-            this.deleteButton1.Text = "DELETE";
-            this.deleteButton1.UseVisualStyleBackColor = true;
-            // 
             // tlpNavigation
             // 
             this.tlpNavigation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -164,50 +117,6 @@
             this.tlpNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpNavigation.Size = new System.Drawing.Size(1020, 60);
             this.tlpNavigation.TabIndex = 1;
-            // 
-            // btnLast
-            // 
-            this.btnLast.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnLast.Location = new System.Drawing.Point(768, 3);
-            this.btnLast.Name = "btnLast";
-            this.btnLast.Size = new System.Drawing.Size(249, 54);
-            this.btnLast.TabIndex = 3;
-            this.btnLast.Text = ">>";
-            this.btnLast.UseVisualStyleBackColor = true;
-            // 
-            // btnNext
-            // 
-            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnNext.Location = new System.Drawing.Point(513, 3);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(249, 54);
-            this.btnNext.TabIndex = 2;
-            this.btnNext.Text = ">";
-            this.btnNext.UseVisualStyleBackColor = true;
-            // 
-            // btnPrevious
-            // 
-            this.btnPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPrevious.Location = new System.Drawing.Point(258, 3);
-            this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(249, 54);
-            this.btnPrevious.TabIndex = 1;
-            this.btnPrevious.Text = "<";
-            this.btnPrevious.UseVisualStyleBackColor = true;
-            // 
-            // btnFirst
-            // 
-            this.btnFirst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnFirst.Location = new System.Drawing.Point(3, 3);
-            this.btnFirst.Name = "btnFirst";
-            this.btnFirst.Size = new System.Drawing.Size(249, 54);
-            this.btnFirst.TabIndex = 0;
-            this.btnFirst.Text = "<<";
-            this.btnFirst.UseVisualStyleBackColor = true;
             // 
             // tlpStudentNavigation
             // 
@@ -659,6 +568,106 @@
             this.chkAdministrator.Text = "Da li student ima administratorska prava u aplikaciji?";
             this.chkAdministrator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkAdministrator.UseVisualStyleBackColor = false;
+            // 
+            // btnLast
+            // 
+            this.btnLast.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnLast.Location = new System.Drawing.Point(768, 3);
+            this.btnLast.Name = "btnLast";
+            this.btnLast.Size = new System.Drawing.Size(249, 54);
+            this.btnLast.TabIndex = 3;
+            this.btnLast.Text = ">>";
+            this.btnLast.UseVisualStyleBackColor = true;
+            this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnNext.Location = new System.Drawing.Point(513, 3);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(249, 54);
+            this.btnNext.TabIndex = 2;
+            this.btnNext.Text = ">";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // btnPrevious
+            // 
+            this.btnPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnPrevious.Location = new System.Drawing.Point(258, 3);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(249, 54);
+            this.btnPrevious.TabIndex = 1;
+            this.btnPrevious.Text = "<";
+            this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
+            // 
+            // btnFirst
+            // 
+            this.btnFirst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnFirst.Location = new System.Drawing.Point(3, 3);
+            this.btnFirst.Name = "btnFirst";
+            this.btnFirst.Size = new System.Drawing.Size(249, 54);
+            this.btnFirst.TabIndex = 0;
+            this.btnFirst.Text = "<<";
+            this.btnFirst.UseVisualStyleBackColor = true;
+            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
+            // 
+            // addNewButton1
+            // 
+            this.addNewButton1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.addNewButton1.Location = new System.Drawing.Point(3, 3);
+            this.addNewButton1.Name = "addNewButton1";
+            this.addNewButton1.Size = new System.Drawing.Size(198, 54);
+            this.addNewButton1.TabIndex = 0;
+            this.addNewButton1.Text = "NEW";
+            this.addNewButton1.UseVisualStyleBackColor = true;
+            this.addNewButton1.Click += new System.EventHandler(this.addNewButton1_Click);
+            // 
+            // exitButton1
+            // 
+            this.exitButton1.Location = new System.Drawing.Point(819, 3);
+            this.exitButton1.Name = "exitButton1";
+            this.exitButton1.Size = new System.Drawing.Size(198, 54);
+            this.exitButton1.TabIndex = 2;
+            this.exitButton1.Text = "EXIT";
+            this.exitButton1.UseVisualStyleBackColor = true;
+            this.exitButton1.Click += new System.EventHandler(this.exitButton1_Click);
+            // 
+            // saveButton1
+            // 
+            this.saveButton1.Location = new System.Drawing.Point(615, 3);
+            this.saveButton1.Name = "saveButton1";
+            this.saveButton1.Size = new System.Drawing.Size(198, 54);
+            this.saveButton1.TabIndex = 4;
+            this.saveButton1.Text = "SAVE";
+            this.saveButton1.UseVisualStyleBackColor = true;
+            this.saveButton1.Click += new System.EventHandler(this.saveButton1_Click);
+            // 
+            // editButton1
+            // 
+            this.editButton1.Location = new System.Drawing.Point(207, 3);
+            this.editButton1.Name = "editButton1";
+            this.editButton1.Size = new System.Drawing.Size(198, 54);
+            this.editButton1.TabIndex = 5;
+            this.editButton1.Text = "EDIT";
+            this.editButton1.UseVisualStyleBackColor = true;
+            this.editButton1.Click += new System.EventHandler(this.editButton1_Click);
+            // 
+            // deleteButton1
+            // 
+            this.deleteButton1.Location = new System.Drawing.Point(411, 3);
+            this.deleteButton1.Name = "deleteButton1";
+            this.deleteButton1.Size = new System.Drawing.Size(198, 54);
+            this.deleteButton1.TabIndex = 6;
+            this.deleteButton1.Text = "DELETE";
+            this.deleteButton1.UseVisualStyleBackColor = true;
+            this.deleteButton1.Click += new System.EventHandler(this.deleteButton1_Click);
             // 
             // frm_Student
             // 
