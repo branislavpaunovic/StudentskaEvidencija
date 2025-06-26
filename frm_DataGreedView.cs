@@ -14,7 +14,9 @@ using System.Configuration;
 namespace StudentskaEvidencija
 {
     public partial class frm_DataGreedView : Form
+        
     {
+        private int currentRowIndex = 0;
         public frm_DataGreedView()
         {
             InitializeComponent();
@@ -57,6 +59,42 @@ namespace StudentskaEvidencija
             }).ToList();
 
             dgv_Student.DataSource = prikazPodaci;
+
+            SelectRow(0);
+
+        }
+        private void SelectRow(int index)
+        {
+            if (index >= 0 && index < dgv_Student.Rows.Count)
+            {
+                dgv_Student.ClearSelection();
+                dgv_Student.Rows[index].Selected = true;
+                dgv_Student.FirstDisplayedScrollingRowIndex = index;
+                currentRowIndex = index;
+            }
+        }
+
+        private void btnFirst_Click(object sender, EventArgs e)
+        {
+            SelectRow(0);
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if (currentRowIndex > 0)
+                SelectRow(currentRowIndex - 1);
+
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (currentRowIndex < dgv_Student.Rows.Count - 1)
+                SelectRow(currentRowIndex + 1);
+        }
+
+        private void btnLast_Click(object sender, EventArgs e)
+        {
+            SelectRow(dgv_Student.Rows.Count - 1);
         }
     }
 }
