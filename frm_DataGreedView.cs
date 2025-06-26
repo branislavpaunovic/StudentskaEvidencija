@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace StudentskaEvidencija
 {
-    public partial class frm_Data_Greed_View : Form
+    public partial class frm_DataGreedView : Form
     {
-        public frm_Data_Greed_View()
+        public frm_DataGreedView()
         {
             InitializeComponent();
         }

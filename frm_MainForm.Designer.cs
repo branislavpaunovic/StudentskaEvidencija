@@ -48,7 +48,8 @@
             // pic_BAPUSS
             // 
             this.pic_BAPUSS.BackColor = System.Drawing.Color.Transparent;
-            this.pic_BAPUSS.Image = ((System.Drawing.Image)(resources.GetObject("pic_BAPUSS.Image")));
+            this.pic_BAPUSS.BackgroundImage = global::StudentskaEvidencija.Properties.Resources.Bapuss;
+            this.pic_BAPUSS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pic_BAPUSS.Location = new System.Drawing.Point(0, 0);
             this.pic_BAPUSS.Name = "pic_BAPUSS";
             this.pic_BAPUSS.Size = new System.Drawing.Size(366, 144);
@@ -121,7 +122,7 @@
             this.cmd_DataGrid.TabIndex = 4;
             this.cmd_DataGrid.Text = "DATA GRID VIEW";
             this.cmd_DataGrid.UseVisualStyleBackColor = true;
-            this.cmd_DataGrid.Click += new System.EventHandler(this.button5_Click);
+            this.cmd_DataGrid.Click += new System.EventHandler(this.cmd_DataGrid_Click);
             // 
             // cmd_ListView
             // 

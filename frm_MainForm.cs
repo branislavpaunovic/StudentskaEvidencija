@@ -108,7 +108,36 @@ namespace StudentskaEvidencija
         {
 
         }
+
+        private void cmd_DataGrid_Click(object sender, EventArgs e)
+        {
+            
+            MessageBox.Show("Kliknuto je na Data Greed dugme!");
+            // Proveri da li je već otvorena forma DataGreed
+            foreach (Form child in this.MdiChildren)
+            {
+                if (child is frm_DataGreedView) // zameni sa DataGreedView ako je tako nazvana
+                {
+                    child.WindowState = FormWindowState.Maximized;
+                    child.BringToFront();
+                    return;
+                }
+            }
+
+            // Ako nije otvorena, kreiraj novu
+            frm_DataGreedView datagreedviewForm = new frm_DataGreedView(); // zameni sa DataGreedView ako je tako nazvana
+            datagreedviewForm.MdiParent = this;
+            datagreedviewForm.StartPosition = FormStartPosition.Manual;
+
+            // Izračunaj poziciju:
+            int x = this.ClientSize.Width - datagreedviewForm.Width - 10; // skroz desno
+            int y = (this.ClientSize.Height - datagreedviewForm.Height) / 2; // po sredini vertikalno
+
+            datagreedviewForm.Location = new System.Drawing.Point(x, y);
+            datagreedviewForm.Show();
+        }
     }
-}
+    }
+
 
 
