@@ -13,8 +13,10 @@ using System.Configuration;
 
 namespace StudentskaEvidencija
 {
+    
     public partial class frm_DataListView : Form
     {
+        private int currentRowIndex = 0;
         public frm_DataListView()
         {
             InitializeComponent();
@@ -92,6 +94,44 @@ namespace StudentskaEvidencija
 
                 lsvStudent.Items.Add(item);
             }
+                SelectRow(0);
+        }
+        private void SelectRow(int index)
+        {
+            if (index >= 0 && index < lsvStudent.Items.Count)
+            {
+                // Očisti prethodni izbor
+                lsvStudent.SelectedItems.Clear();
+
+                // Selektuj novi red
+                lsvStudent.Items[index].Selected = true;
+                lsvStudent.Items[index].EnsureVisible();
+
+                currentRowIndex = index;
+            }
+        }
+    
+        private void btnPrevious_Click_1(object sender, EventArgs e)
+        {
+            if (currentRowIndex > 0)
+                SelectRow(currentRowIndex - 1);
+        }
+
+        private void btnNext_Click_1(object sender, EventArgs e)
+        {
+            if (currentRowIndex < lsvStudent.Items.Count - 1)
+                SelectRow(currentRowIndex + 1);
+        }
+
+        private void btnLast_Click_1(object sender, EventArgs e)
+        {
+            SelectRow(lsvStudent.Items.Count - 1);
+        }
+
+        private void btnFirst_Click_1(object sender, EventArgs e)
+        {
+            SelectRow(0);
         }
     }
+
 }
