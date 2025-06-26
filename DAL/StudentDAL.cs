@@ -31,22 +31,22 @@ namespace StudentskaEvidencija.DAL
                 {
                     Student s = new Student
                     {
-                        StudentId = Convert.ToInt32(reader["StudentId"]),
-                        Ime = reader["Ime"].ToString(),
-                        Prezime = reader["Prezime"].ToString(),
-                        DatumRodjenja = Convert.ToDateTime(reader["DatumRodjenja"]),
-                        BrojIndeksa = reader["BrojIndeksa"].ToString(),
-                        Telefon = reader["Telefon"] as string,
-                        Email = reader["Email"] as string,
-                        Ulica = reader["Ulica"] as string,
-                        BrojKuce = reader["BrojKuce"] as string,
-                        PTT = reader["PTT"] as string,
-                        Grad = reader["Grad"] as string,
-                        Zemlja = reader["Zemlja"] as string,
-                        SmerId = Convert.ToInt32(reader["SmerId"]),
-                        JeAdministrator = Convert.ToBoolean(reader["JeAdministrator"]),
-                        PolID = reader["PolID"] == DBNull.Value ? 0 : Convert.ToInt32(reader["PolID"]),
-                        KorisnikID = Convert.ToInt32(reader["KorisnikID"])
+                        StudentId = reader["StudentId"] != DBNull.Value ? Convert.ToInt32(reader["StudentId"]) : 0,
+                        Ime = reader["Ime"] != DBNull.Value ? reader["Ime"].ToString() : "",
+                        Prezime = reader["Prezime"] != DBNull.Value ? reader["Prezime"].ToString() : "",
+                        DatumRodjenja = reader["DatumRodjenja"] != DBNull.Value ? Convert.ToDateTime(reader["DatumRodjenja"]) : DateTime.MinValue,
+                        BrojIndeksa = reader["BrojIndeksa"] != DBNull.Value ? reader["BrojIndeksa"].ToString() : "",
+                        Telefon = reader["Telefon"] != DBNull.Value ? reader["Telefon"].ToString() : "",
+                        Email = reader["Email"] != DBNull.Value ? reader["Email"].ToString() : "",
+                        Ulica = reader["Ulica"] != DBNull.Value ? reader["Ulica"].ToString() : "",
+                        BrojKuce = reader["BrojKuce"] != DBNull.Value ? reader["BrojKuce"].ToString() : "",
+                        PTT = reader["PTT"] != DBNull.Value ? reader["PTT"].ToString() : "",
+                        Grad = reader["Grad"] != DBNull.Value ? reader["Grad"].ToString() : "",
+                        Zemlja = reader["Zemlja"] != DBNull.Value ? reader["Zemlja"].ToString() : "",
+                        SmerId = reader["SmerId"] != DBNull.Value ? Convert.ToInt32(reader["SmerId"]) : 0,
+                        JeAdministrator = reader["JeAdministrator"] != DBNull.Value ? Convert.ToBoolean(reader["JeAdministrator"]) : false,
+                        PolID = reader["PolID"] != DBNull.Value ? Convert.ToInt32(reader["PolID"]) : 0,
+                        KorisnikID = reader["KorisnikID"] != DBNull.Value ? Convert.ToInt32(reader["KorisnikID"]) : 0
                     };
 
                     students.Add(s);
