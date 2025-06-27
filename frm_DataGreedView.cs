@@ -57,8 +57,7 @@ namespace StudentskaEvidencija
                 s.Grad,
                 s.Zemlja,
                 NazivSmera = smerovi.ContainsKey(s.SmerId) ? smerovi[s.SmerId].NazivSmera : "Nepoznat smer",
-                NazivPola = polovi.ContainsKey(s.PolID) ? polovi[s.PolID].NazivPola : "Nepoznat pol",
-                s.JeAdministrator
+                NazivPola = polovi.ContainsKey(s.PolID) ? polovi[s.PolID].NazivPola : "Nepoznat pol"
             }).ToList();
 
             dgv_Student.DataSource = prikazPodaci;

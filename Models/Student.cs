@@ -24,8 +24,8 @@ namespace StudentskaEvidencija.Models
         public string Zemlja { get; set; }
 
         public int SmerId { get; set; }
-        public bool JeAdministrator { get; set; }
+        
         public int PolID { get; set; }
-        public int KorisnikID { get; set; }
+      
     }
 }

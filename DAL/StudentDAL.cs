@@ -44,9 +44,7 @@ namespace StudentskaEvidencija.DAL
                         Grad = reader["Grad"] != DBNull.Value ? reader["Grad"].ToString() : "",
                         Zemlja = reader["Zemlja"] != DBNull.Value ? reader["Zemlja"].ToString() : "",
                         SmerId = reader["SmerId"] != DBNull.Value ? Convert.ToInt32(reader["SmerId"]) : 0,
-                        JeAdministrator = reader["JeAdministrator"] != DBNull.Value ? Convert.ToBoolean(reader["JeAdministrator"]) : false,
                         PolID = reader["PolID"] != DBNull.Value ? Convert.ToInt32(reader["PolID"]) : 0,
-                        KorisnikID = reader["KorisnikID"] != DBNull.Value ? Convert.ToInt32(reader["KorisnikID"]) : 0
                     };
 
                     students.Add(s);

@@ -37,7 +37,8 @@ namespace StudentskaEvidencija.DAL
                         Prezime = reader["Prezime"].ToString(),
                         Username = reader["Username"].ToString(),
                         Lozinka = reader["Lozinka"].ToString(),
-                        IsAdmin = Convert.ToBoolean(reader["IsAdmin"])
+                        IsAdmin = Convert.ToBoolean(reader["IsAdmin"]),
+                        StudentID = Convert.ToInt32(reader["StudentID"]) // ➕ Ovo je dodatak
                     };
 
                     korisnici.Add(k);
@@ -69,7 +70,8 @@ namespace StudentskaEvidencija.DAL
                         Prezime = reader["Prezime"].ToString(),
                         Username = reader["Username"].ToString(),
                         Lozinka = reader["Lozinka"].ToString(),
-                        IsAdmin = Convert.ToBoolean(reader["IsAdmin"])
+                        IsAdmin = Convert.ToBoolean(reader["IsAdmin"]),
+                        StudentID = Convert.ToInt32(reader["StudentID"]) // ➕ Ovo je dodatak
                     };
                 }
 

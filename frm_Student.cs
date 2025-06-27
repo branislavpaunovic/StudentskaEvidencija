@@ -39,14 +39,12 @@ namespace StudentskaEvidencija
 
             string query = @"
 SELECT 
-    s.Ime, s.Prezime, s.DatumRodjenja, s.BrojIndeksa, s.Telefon, s.Email, s.Ulica, s.BrojKuce, s.PTT, s.Grad, s.Zemlja,
-    sm.NazivSmera,
-    p.NazivPola,
-    s.JeAdministrator
+     s.StudentID, s.Ime, s.Prezime, s.DatumRodjenja, s.BrojIndeksa, s.Telefon, s.Email, s.Ulica, s.BrojKuce, s.PTT, s.Grad, s.Zemlja,
+    sm.NazivSmera, p.NazivPola, k.IsAdmin
 FROM dbo.Student s
 LEFT JOIN dbo.Smer sm ON s.SmerId = sm.SmerId
 LEFT JOIN dbo.Pol p ON s.PolID = p.PolID
-LEFT JOIN dbo.Korisnik k ON s.KorisnikID = k.KorisnikID
+LEFT JOIN dbo.Korisnik k ON s.StudentID = k.StudentID
 ORDER BY s.StudentId ASC";
 
             using (var adapter = new SqlDataAdapter(query, _conn))
@@ -106,7 +104,10 @@ ORDER BY s.StudentId ASC";
             txtZemlja.Text = row["Zemlja"].ToString();
             txtSmer.Text = row["NazivSmera"].ToString();
             txtPol.Text = row["NazivPola"].ToString();
-            chkAdministrator.Checked = Convert.ToBoolean(row["JeAdministrator"]);
+            chkAdministrator.Checked = row.Table.Columns.Contains("IsAdmin") &&
+                           row["IsAdmin"] != DBNull.Value &&
+                           Convert.ToBoolean(row["IsAdmin"]);
+
         }
 
         // Navigacija kroz slogove
@@ -278,13 +279,11 @@ ORDER BY s.StudentId ASC";
             string query = @"
 SELECT 
     s.Ime, s.Prezime, s.DatumRodjenja, s.BrojIndeksa, s.Telefon, s.Email, s.Ulica, s.BrojKuce, s.PTT, s.Grad, s.Zemlja,
-    sm.NazivSmera,
-    p.NazivPola,
-    s.JeAdministrator
+    sm.NazivSmera, p.NazivPola, k.IsAdmin
 FROM dbo.Student s
 LEFT JOIN dbo.Smer sm ON s.SmerId = sm.SmerId
 LEFT JOIN dbo.Pol p ON s.PolID = p.PolID
-LEFT JOIN dbo.Korisnik k ON s.KorisnikID = k.KorisnikID
+LEFT JOIN dbo.Korisnik k ON s.StuidentID = k.StudentID
 ORDER BY s.StudentId ASC";
 
             using (var adapter = new SqlDataAdapter(query, _conn))

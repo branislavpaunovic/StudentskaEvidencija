@@ -14,5 +14,7 @@ namespace StudentskaEvidencija.Models
         public string Username { get; set; }
         public string Lozinka { get; set; }
         public bool IsAdmin { get; set; }
+        public int StudentID { get; set; }
+
     }
 }

@@ -90,7 +90,6 @@ namespace StudentskaEvidencija
                 item.SubItems.Add(s.Zemlja ?? "");
                 item.SubItems.Add(nazivSmera);
                 item.SubItems.Add(nazivPola);
-                item.SubItems.Add(s.JeAdministrator ? "DA" : "NE");
 
                 lsvStudent.Items.Add(item);
             }
