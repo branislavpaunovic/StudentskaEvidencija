@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddNewButton.cs" />
+    <Compile Include="Controls\RecordButtonHandler.cs" />
     <Compile Include="DAL\KorisnikDAL.cs" />
     <Compile Include="DAL\PolDAL.cs" />
     <Compile Include="DAL\SmerDAL.cs" />
