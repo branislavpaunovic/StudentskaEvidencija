@@ -1,104 +1,57 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Configuration;
+using System.Configuration;  // ako koristiš connection string iz App.config
+using StudentskaEvidencija.Services;
+using StudentskaEvidencija.Auth;
 
 namespace StudentskaEvidencija
 {
     public partial class frm_Login : Form
     {
-        private Label label1;
-        private Label label2;
-        private TextBox txtUsername;
-        private TextBox txtPassword;
-        private Button btnOK;
+        private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtPassword;
+
+
+        private readonly LoginService _loginService;
 
         public frm_Login()
         {
             InitializeComponent();
-            this.AcceptButton = btnOK; // Enter taster aktivira dugme
+
+            // Uzimamo konekcioni string iz App.config fajla
+            string connString = ConfigurationManager.ConnectionStrings["StudentskaEvidencija"].ConnectionString;
+            _loginService = new LoginService(connString);
+
+            // Omogućavamo da Enter aktivira dugme
+            this.AcceptButton = btnOK;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            // Uzimanje korisničkog imena i lozinke iz tekstualnih polja
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text;
 
-            // Provera da li su kredencijali za administratora
-            if (username == "administrator" && password == "password")
-            {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-                return;
-            }
+            bool success = _loginService.TryLogin(username, password);
 
-            // Provera da li postoji korisnik u bazi
-            if (ProveriKorisnikaUBazi(username, password))
+            if (success)
             {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-                return;
-            }
+                var currentUser = LoginManager.Instance.CurrentUser;
+                MessageBox.Show(
+                    $"Dobrodošao {currentUser.Ime} {currentUser.Prezime}\nUloga: {currentUser.Role}",
+                    "Uspešna prijava", MessageBoxButtons.OK, MessageBoxIcon.Information
+                );
 
-            // Ako ni jedna provera nije prošla — prikazujemo poruku sa opcijom DA/NE
-            DialogResult odgovor = MessageBox.Show(
-                "Pogrešili ste korisničko ime! Da li želite da pokušate ponovo?",
-                "Greška",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning);
-
-            if (odgovor == DialogResult.Yes)
-            {
-                // Fokusiramo korisnika nazad na korisničko ime
-                txtUsername.Focus();
-                txtUsername.SelectAll();
+                frm_MainForm main = new frm_MainForm();
+                this.Hide();
+                main.Show();
             }
             else
             {
-                // Izlazak iz aplikacije
-                Application.Exit();
-            }
-        }
-
-        private bool ProveriKorisnikaUBazi(string username, string password)
-        {
-            // Uzimamo konekcioni string iz App.config fajla
-            string connStr = ConfigurationManager.ConnectionStrings["StudentskaEvidencija"].ConnectionString;
-            SqlConnection conn = null;
-
-            try
-            {
-                // Otvaramo konekciju
-                conn = new SqlConnection(connStr);
-                conn.Open();
-
-                // Upit koji proverava da li postoji korisnik sa datim podacima
-                string query = "SELECT COUNT(*) FROM dbo.Korisnik WHERE Username = @username AND Lozinka = @password";
-
-                using (var cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@username", username);
-                    cmd.Parameters.AddWithValue("@password", password);
-
-                    int count = (int)cmd.ExecuteScalar();
-                    return count > 0;
-                }
-            }
-            catch (Exception ex)
-            {
-                // Prikaz poruke o grešci
-                MessageBox.Show("Greška pri proveri korisničkih podataka:\n" + ex.Message,
-                    "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            finally
-            {
-                // Osiguravamo da se konekcija zatvori
-                if (conn != null && conn.State == System.Data.ConnectionState.Open)
-                {
-                    conn.Close();
-                }
+                _loginService.HandleInvalidLogin(this);
             }
         }
 
@@ -174,6 +127,7 @@ namespace StudentskaEvidencija
         private void frm_Login_Load(object sender, EventArgs e)
         {
             // Trenutno prazno — ovde možeš dodati logiku pri učitavanju forme
+            txtUsername.Focus();
         }
     }
 }

@@ -97,12 +97,16 @@
     <Compile Include="frm_MainForm.Designer.cs">
       <DependentUpon>frm_MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Auth\LoginManager.cs" />
     <Compile Include="Models\Korisnik.cs" />
     <Compile Include="Models\Pol.cs" />
     <Compile Include="Models\Smer.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Auth\User.cs" />
+    <Compile Include="Auth\UserRole.cs" />
+    <Compile Include="Services\LoginServices.cs" />
     <EmbeddedResource Include="frm_DataListView.aa.resx">
       <DependentUpon>frm_DataListView.cs</DependentUpon>
     </EmbeddedResource>
