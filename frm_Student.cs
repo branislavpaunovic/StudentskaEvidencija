@@ -78,8 +78,8 @@ ORDER BY s.StudentId ASC";
             txtPtt.Enabled = enabled;
             txtGrad.Enabled = enabled;
             txtZemlja.Enabled = enabled;
-            txtSmer.Enabled = enabled;
-            txtPol.Enabled = enabled;
+            cmbSmer.Enabled = enabled;
+            cmbPol.Enabled = enabled;
             chkAdministrator.Enabled = enabled;
         }
 
@@ -102,8 +102,8 @@ ORDER BY s.StudentId ASC";
             txtPtt.Text = row["PTT"].ToString();
             txtGrad.Text = row["Grad"].ToString();
             txtZemlja.Text = row["Zemlja"].ToString();
-            txtSmer.Text = row["NazivSmera"].ToString();
-            txtPol.Text = row["NazivPola"].ToString();
+            cmbSmer.Text = row["NazivSmera"].ToString();
+            cmbPol.Text = row["NazivPola"].ToString();
             chkAdministrator.Checked = row.Table.Columns.Contains("IsAdmin") &&
                            row["IsAdmin"] != DBNull.Value &&
                            Convert.ToBoolean(row["IsAdmin"]);
@@ -185,13 +185,7 @@ ORDER BY s.StudentId ASC";
 
         }
 
-        private void addNewButton1_Click(object sender, EventArgs e)
-        {
-            _isAddingNew = true;
-            ClearFields();
-            SetFieldsEnabled(true);
-            txtIme.Focus();
-        }
+        
         private void ClearFields()
         {
             txtIme.Text = "";
@@ -205,37 +199,12 @@ ORDER BY s.StudentId ASC";
             txtPtt.Text = "";
             txtGrad.Text = "";
             txtZemlja.Text = "";
-            txtSmer.Text = "";
-            txtPol.Text = "";
+            cmbSmer.Text = "";
+            cmbPol.Text = "";
             chkAdministrator.Checked = false;
         }
 
-        private void saveButton1_Click(object sender, EventArgs e)
-        {
-            if (_isAddingNew)
-            {
-                // Kreiraj INSERT upit
-                using (SqlConnection conn = new SqlConnection(_connStr))
-                {
-                    string insertQuery = @"INSERT INTO Student (Ime, Prezime, ...) 
-                                   VALUES (@Ime, @Prezime, ...)";
-                    using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@Ime", txtIme.Text);
-                        // Dodaj sve ostale parametre...
-
-                        conn.Open();
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-
-                MessageBox.Show("Novi student je uspešno dodat.");
-                _isAddingNew = false;
-                SetFieldsEnabled(false);
-                LoadDataAgain(); // metoda koja osvežava DataTable i prikazuje poslednji slog
-            }
-        }
-
+        
         private void exitButton1_Click(object sender, EventArgs e)
         {
             if (_isAddingNew)
@@ -249,31 +218,6 @@ ORDER BY s.StudentId ASC";
             }
         }
 
-        private void deleteButton1_Click(object sender, EventArgs e)
-        {
-            if (_isAddingNew)
-            {
-                var result = MessageBox.Show("Niste sačuvali novi unos. Da li želite da odustanete?",
-                                             "Potvrda", MessageBoxButtons.YesNo);
-                if (result == DialogResult.No)
-                    return; // ne dozvoljava izlazak
-                else
-                    _isAddingNew = false; // prekidamo "add mode"
-            }
-        }
-
-        private void editButton1_Click(object sender, EventArgs e)
-        {
-            if (_isAddingNew)
-            {
-                var result = MessageBox.Show("Niste sačuvali novi unos. Da li želite da odustanete?",
-                                             "Potvrda", MessageBoxButtons.YesNo);
-                if (result == DialogResult.No)
-                    return; // ne dozvoljava izlazak
-                else
-                    _isAddingNew = false; // prekidamo "add mode"
-            }
-        }
         private void LoadDataAgain()
         {
             string query = @"
@@ -296,6 +240,6 @@ ORDER BY s.StudentId ASC";
             ShowStudent(_currentIndex); // prikaži ga u formi
         }
 
-
+       
     }
 }

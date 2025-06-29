@@ -30,10 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Student));
             this.tlpActions = new System.Windows.Forms.TableLayoutPanel();
+            this.exitButton1 = new StudentskaEvidencija.Controls.ExitButton();
             this.tlpNavigation = new System.Windows.Forms.TableLayoutPanel();
+            this.btnLast = new StudentskaEvidencija.Controls.AddNewButton();
+            this.btnNext = new StudentskaEvidencija.Controls.AddNewButton();
+            this.btnPrevious = new StudentskaEvidencija.Controls.AddNewButton();
+            this.btnFirst = new StudentskaEvidencija.Controls.AddNewButton();
             this.tlpStudentNavigation = new System.Windows.Forms.TableLayoutPanel();
-            this.txtPol = new System.Windows.Forms.TextBox();
-            this.txtSmer = new System.Windows.Forms.TextBox();
+            this.cmbPol = new System.Windows.Forms.ComboBox();
             this.txtZemlja = new System.Windows.Forms.TextBox();
             this.txtGrad = new System.Windows.Forms.TextBox();
             this.txtPtt = new System.Windows.Forms.TextBox();
@@ -60,15 +64,11 @@
             this.lblAdministrator = new System.Windows.Forms.Label();
             this.txtIme = new System.Windows.Forms.TextBox();
             this.chkAdministrator = new System.Windows.Forms.CheckBox();
-            this.btnLast = new StudentskaEvidencija.Controls.AddNewButton();
-            this.btnNext = new StudentskaEvidencija.Controls.AddNewButton();
-            this.btnPrevious = new StudentskaEvidencija.Controls.AddNewButton();
-            this.btnFirst = new StudentskaEvidencija.Controls.AddNewButton();
-            this.addNewButton1 = new StudentskaEvidencija.Controls.AddNewButton();
-            this.exitButton1 = new StudentskaEvidencija.Controls.ExitButton();
-            this.saveButton1 = new StudentskaEvidencija.Controls.SaveButton();
-            this.editButton1 = new StudentskaEvidencija.EditButton();
-            this.deleteButton1 = new StudentskaEvidencija.Controls.DeleteButton();
+            this.cmbSmer = new System.Windows.Forms.ComboBox();
+            this.btnNew = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.tlpActions.SuspendLayout();
             this.tlpNavigation.SuspendLayout();
             this.tlpStudentNavigation.SuspendLayout();
@@ -85,17 +85,28 @@
             this.tlpActions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tlpActions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tlpActions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tlpActions.Controls.Add(this.addNewButton1, 0, 0);
+            this.tlpActions.Controls.Add(this.btnSave, 3, 0);
+            this.tlpActions.Controls.Add(this.btnDelete, 2, 0);
+            this.tlpActions.Controls.Add(this.btnEdit, 1, 0);
             this.tlpActions.Controls.Add(this.exitButton1, 4, 0);
-            this.tlpActions.Controls.Add(this.saveButton1, 3, 0);
-            this.tlpActions.Controls.Add(this.editButton1, 1, 0);
-            this.tlpActions.Controls.Add(this.deleteButton1, 2, 0);
+            this.tlpActions.Controls.Add(this.btnNew, 0, 0);
             this.tlpActions.Location = new System.Drawing.Point(2, 740);
             this.tlpActions.Name = "tlpActions";
             this.tlpActions.RowCount = 1;
             this.tlpActions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpActions.Size = new System.Drawing.Size(1020, 60);
             this.tlpActions.TabIndex = 0;
+            // 
+            // exitButton1
+            // 
+            this.exitButton1.Font = new System.Drawing.Font("Poppins Medium", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitButton1.Location = new System.Drawing.Point(819, 3);
+            this.exitButton1.Name = "exitButton1";
+            this.exitButton1.Size = new System.Drawing.Size(198, 54);
+            this.exitButton1.TabIndex = 2;
+            this.exitButton1.Text = "E&XIT";
+            this.exitButton1.UseVisualStyleBackColor = true;
+            this.exitButton1.Click += new System.EventHandler(this.exitButton1_Click);
             // 
             // tlpNavigation
             // 
@@ -118,6 +129,58 @@
             this.tlpNavigation.Size = new System.Drawing.Size(1020, 60);
             this.tlpNavigation.TabIndex = 1;
             // 
+            // btnLast
+            // 
+            this.btnLast.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnLast.Font = new System.Drawing.Font("Poppins Black", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLast.Location = new System.Drawing.Point(768, 3);
+            this.btnLast.Name = "btnLast";
+            this.btnLast.Size = new System.Drawing.Size(249, 54);
+            this.btnLast.TabIndex = 3;
+            this.btnLast.Text = ">>";
+            this.btnLast.UseVisualStyleBackColor = true;
+            this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnNext.Font = new System.Drawing.Font("Poppins Black", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNext.Location = new System.Drawing.Point(513, 3);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(249, 54);
+            this.btnNext.TabIndex = 2;
+            this.btnNext.Text = ">";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // btnPrevious
+            // 
+            this.btnPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnPrevious.Font = new System.Drawing.Font("Poppins Black", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrevious.Location = new System.Drawing.Point(258, 3);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(249, 54);
+            this.btnPrevious.TabIndex = 1;
+            this.btnPrevious.Text = "<";
+            this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
+            // 
+            // btnFirst
+            // 
+            this.btnFirst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnFirst.Font = new System.Drawing.Font("Poppins Black", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFirst.Location = new System.Drawing.Point(3, 3);
+            this.btnFirst.Name = "btnFirst";
+            this.btnFirst.Size = new System.Drawing.Size(249, 54);
+            this.btnFirst.TabIndex = 0;
+            this.btnFirst.Text = "<<";
+            this.btnFirst.UseVisualStyleBackColor = true;
+            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
+            // 
             // tlpStudentNavigation
             // 
             this.tlpStudentNavigation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -126,8 +189,7 @@
             this.tlpStudentNavigation.ColumnCount = 2;
             this.tlpStudentNavigation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpStudentNavigation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpStudentNavigation.Controls.Add(this.txtPol, 1, 12);
-            this.tlpStudentNavigation.Controls.Add(this.txtSmer, 1, 11);
+            this.tlpStudentNavigation.Controls.Add(this.cmbPol, 1, 12);
             this.tlpStudentNavigation.Controls.Add(this.txtZemlja, 1, 10);
             this.tlpStudentNavigation.Controls.Add(this.txtGrad, 1, 9);
             this.tlpStudentNavigation.Controls.Add(this.txtPtt, 1, 8);
@@ -154,6 +216,7 @@
             this.tlpStudentNavigation.Controls.Add(this.lblAdministrator, 0, 13);
             this.tlpStudentNavigation.Controls.Add(this.txtIme, 1, 0);
             this.tlpStudentNavigation.Controls.Add(this.chkAdministrator, 1, 13);
+            this.tlpStudentNavigation.Controls.Add(this.cmbSmer, 1, 11);
             this.tlpStudentNavigation.Location = new System.Drawing.Point(2, 5);
             this.tlpStudentNavigation.Name = "tlpStudentNavigation";
             this.tlpStudentNavigation.RowCount = 14;
@@ -174,33 +237,13 @@
             this.tlpStudentNavigation.Size = new System.Drawing.Size(1020, 675);
             this.tlpStudentNavigation.TabIndex = 2;
             // 
-            // txtPol
+            // cmbPol
             // 
-            this.txtPol.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPol.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtPol.Enabled = false;
-            this.txtPol.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPol.Location = new System.Drawing.Point(515, 583);
-            this.txtPol.Margin = new System.Windows.Forms.Padding(5, 7, 5, 5);
-            this.txtPol.Name = "txtPol";
-            this.txtPol.Size = new System.Drawing.Size(500, 36);
-            this.txtPol.TabIndex = 39;
-            // 
-            // txtSmer
-            // 
-            this.txtSmer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSmer.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtSmer.Enabled = false;
-            this.txtSmer.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSmer.Location = new System.Drawing.Point(515, 535);
-            this.txtSmer.Margin = new System.Windows.Forms.Padding(5, 7, 5, 5);
-            this.txtSmer.Name = "txtSmer";
-            this.txtSmer.Size = new System.Drawing.Size(500, 36);
-            this.txtSmer.TabIndex = 38;
+            this.cmbPol.FormattingEnabled = true;
+            this.cmbPol.Location = new System.Drawing.Point(513, 579);
+            this.cmbPol.Name = "cmbPol";
+            this.cmbPol.Size = new System.Drawing.Size(504, 36);
+            this.cmbPol.TabIndex = 42;
             // 
             // txtZemlja
             // 
@@ -533,9 +576,9 @@
             this.lblAdministrator.Location = new System.Drawing.Point(5, 634);
             this.lblAdministrator.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
             this.lblAdministrator.Name = "lblAdministrator";
-            this.lblAdministrator.Size = new System.Drawing.Size(132, 36);
+            this.lblAdministrator.Size = new System.Drawing.Size(84, 36);
             this.lblAdministrator.TabIndex = 27;
-            this.lblAdministrator.Text = "Administrator :";
+            this.lblAdministrator.Text = "Korisnik :";
             this.lblAdministrator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtIme
@@ -565,109 +608,57 @@
             this.chkAdministrator.Name = "chkAdministrator";
             this.chkAdministrator.Size = new System.Drawing.Size(504, 45);
             this.chkAdministrator.TabIndex = 40;
-            this.chkAdministrator.Text = "Da li student ima administratorska prava u aplikaciji?";
+            this.chkAdministrator.Text = "Da li je student korisnik aplikacije?";
             this.chkAdministrator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkAdministrator.UseVisualStyleBackColor = false;
             // 
-            // btnLast
+            // cmbSmer
             // 
-            this.btnLast.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnLast.Location = new System.Drawing.Point(768, 3);
-            this.btnLast.Name = "btnLast";
-            this.btnLast.Size = new System.Drawing.Size(249, 54);
-            this.btnLast.TabIndex = 3;
-            this.btnLast.Text = ">>";
-            this.btnLast.UseVisualStyleBackColor = true;
-            this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
+            this.cmbSmer.FormattingEnabled = true;
+            this.cmbSmer.Location = new System.Drawing.Point(513, 531);
+            this.cmbSmer.Name = "cmbSmer";
+            this.cmbSmer.Size = new System.Drawing.Size(504, 36);
+            this.cmbSmer.TabIndex = 41;
             // 
-            // btnNext
+            // btnNew
             // 
-            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnNext.Location = new System.Drawing.Point(513, 3);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(249, 54);
-            this.btnNext.TabIndex = 2;
-            this.btnNext.Text = ">";
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            this.btnNew.Font = new System.Drawing.Font("Poppins Medium", 20.25F, System.Drawing.FontStyle.Bold);
+            this.btnNew.Location = new System.Drawing.Point(3, 3);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(198, 54);
+            this.btnNew.TabIndex = 3;
+            this.btnNew.Text = "&New";
+            this.btnNew.UseVisualStyleBackColor = true;
             // 
-            // btnPrevious
+            // btnEdit
             // 
-            this.btnPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPrevious.Location = new System.Drawing.Point(258, 3);
-            this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(249, 54);
-            this.btnPrevious.TabIndex = 1;
-            this.btnPrevious.Text = "<";
-            this.btnPrevious.UseVisualStyleBackColor = true;
-            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
+            this.btnEdit.Font = new System.Drawing.Font("Poppins Medium", 20.25F, System.Drawing.FontStyle.Bold);
+            this.btnEdit.Location = new System.Drawing.Point(207, 3);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(198, 54);
+            this.btnEdit.TabIndex = 4;
+            this.btnEdit.Text = "&Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
             // 
-            // btnFirst
+            // btnDelete
             // 
-            this.btnFirst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnFirst.Location = new System.Drawing.Point(3, 3);
-            this.btnFirst.Name = "btnFirst";
-            this.btnFirst.Size = new System.Drawing.Size(249, 54);
-            this.btnFirst.TabIndex = 0;
-            this.btnFirst.Text = "<<";
-            this.btnFirst.UseVisualStyleBackColor = true;
-            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
+            this.btnDelete.Font = new System.Drawing.Font("Poppins Medium", 20.25F, System.Drawing.FontStyle.Bold);
+            this.btnDelete.Location = new System.Drawing.Point(411, 3);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(198, 54);
+            this.btnDelete.TabIndex = 5;
+            this.btnDelete.Text = "&Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
             // 
-            // addNewButton1
+            // btnSave
             // 
-            this.addNewButton1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.addNewButton1.Location = new System.Drawing.Point(3, 3);
-            this.addNewButton1.Name = "addNewButton1";
-            this.addNewButton1.Size = new System.Drawing.Size(198, 54);
-            this.addNewButton1.TabIndex = 0;
-            this.addNewButton1.Text = "NEW";
-            this.addNewButton1.UseVisualStyleBackColor = true;
-            this.addNewButton1.Click += new System.EventHandler(this.addNewButton1_Click);
-            // 
-            // exitButton1
-            // 
-            this.exitButton1.Location = new System.Drawing.Point(819, 3);
-            this.exitButton1.Name = "exitButton1";
-            this.exitButton1.Size = new System.Drawing.Size(198, 54);
-            this.exitButton1.TabIndex = 2;
-            this.exitButton1.Text = "EXIT";
-            this.exitButton1.UseVisualStyleBackColor = true;
-            this.exitButton1.Click += new System.EventHandler(this.exitButton1_Click);
-            // 
-            // saveButton1
-            // 
-            this.saveButton1.Location = new System.Drawing.Point(615, 3);
-            this.saveButton1.Name = "saveButton1";
-            this.saveButton1.Size = new System.Drawing.Size(198, 54);
-            this.saveButton1.TabIndex = 4;
-            this.saveButton1.Text = "SAVE";
-            this.saveButton1.UseVisualStyleBackColor = true;
-            this.saveButton1.Click += new System.EventHandler(this.saveButton1_Click);
-            // 
-            // editButton1
-            // 
-            this.editButton1.Location = new System.Drawing.Point(207, 3);
-            this.editButton1.Name = "editButton1";
-            this.editButton1.Size = new System.Drawing.Size(198, 54);
-            this.editButton1.TabIndex = 5;
-            this.editButton1.Text = "EDIT";
-            this.editButton1.UseVisualStyleBackColor = true;
-            this.editButton1.Click += new System.EventHandler(this.editButton1_Click);
-            // 
-            // deleteButton1
-            // 
-            this.deleteButton1.Location = new System.Drawing.Point(411, 3);
-            this.deleteButton1.Name = "deleteButton1";
-            this.deleteButton1.Size = new System.Drawing.Size(198, 54);
-            this.deleteButton1.TabIndex = 6;
-            this.deleteButton1.Text = "DELETE";
-            this.deleteButton1.UseVisualStyleBackColor = true;
-            this.deleteButton1.Click += new System.EventHandler(this.deleteButton1_Click);
+            this.btnSave.Font = new System.Drawing.Font("Poppins Medium", 20.25F, System.Drawing.FontStyle.Bold);
+            this.btnSave.Location = new System.Drawing.Point(615, 3);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(198, 54);
+            this.btnSave.TabIndex = 6;
+            this.btnSave.Text = "&Save";
+            this.btnSave.UseVisualStyleBackColor = true;
             // 
             // frm_Student
             // 
@@ -699,11 +690,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpActions;
-        private Controls.AddNewButton addNewButton1;
         private Controls.ExitButton exitButton1;
-        private Controls.SaveButton saveButton1;
-        private EditButton editButton1;
-        private Controls.DeleteButton deleteButton1;
         private System.Windows.Forms.TableLayoutPanel tlpNavigation;
         private Controls.AddNewButton btnLast;
         private Controls.AddNewButton btnNext;
@@ -725,8 +712,6 @@
         private System.Windows.Forms.Label lblPol;
         private System.Windows.Forms.Label lblAdministrator;
         private System.Windows.Forms.TextBox txtIme;
-        private System.Windows.Forms.TextBox txtPol;
-        private System.Windows.Forms.TextBox txtSmer;
         private System.Windows.Forms.TextBox txtZemlja;
         private System.Windows.Forms.TextBox txtGrad;
         private System.Windows.Forms.TextBox txtPtt;
@@ -738,5 +723,11 @@
         private System.Windows.Forms.TextBox txtDatumRodjenja;
         private System.Windows.Forms.TextBox txtPrezime;
         private System.Windows.Forms.CheckBox chkAdministrator;
+        private System.Windows.Forms.ComboBox cmbPol;
+        private System.Windows.Forms.ComboBox cmbSmer;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnNew;
     }
 }

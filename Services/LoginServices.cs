@@ -15,6 +15,7 @@ namespace StudentskaEvidencija.Services
 {
     public class LoginService
     {
+        private int brojNeuspelihPokusaja = 0;
         private readonly KorisnikDAL _korisnikDAL;
         private int _attemptsUsername = 0;
         private int _attemptsPassword = 0;
@@ -48,8 +49,22 @@ namespace StudentskaEvidencija.Services
 
         public void HandleInvalidLogin(Form loginForm)
         {
+            brojNeuspelihPokusaja++;
+
+            if (brojNeuspelihPokusaja >= 3)
+            {
+                MessageBox.Show(
+                    "Previše neuspelih pokušaja. Program će se zatvoriti.",
+                    "Prijava neuspešna",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                Application.Exit();
+                return;
+            }
+
             DialogResult result = MessageBox.Show(
-                "Pogrešno korisničko ime ili lozinka.\nDa li želite da pokušate ponovo?",
+                $"Pogrešno korisničko ime ili lozinka.\nPreostali pokušaji: {3 - brojNeuspelihPokusaja}\n\nDa li želite da pokušate ponovo?",
                 "Prijava neuspešna",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning);
@@ -59,5 +74,6 @@ namespace StudentskaEvidencija.Services
                 Application.Exit();
             }
         }
+
     }
 }

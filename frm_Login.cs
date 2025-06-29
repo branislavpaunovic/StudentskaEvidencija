@@ -45,15 +45,15 @@ namespace StudentskaEvidencija
                     "Uspešna prijava", MessageBoxButtons.OK, MessageBoxIcon.Information
                 );
 
-                frm_MainForm main = new frm_MainForm();
-                this.Hide();
-                main.Show();
+                this.DialogResult = DialogResult.OK;
+                this.Close(); // Zatvaramo login skroz, nastavlja dalje u Program.cs
             }
             else
             {
                 _loginService.HandleInvalidLogin(this);
             }
         }
+
 
         private void InitializeComponent()
         {
